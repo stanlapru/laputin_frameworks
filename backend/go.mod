@@ -1,4 +1,4 @@
-module github.com/stanlapru/laputin-frameworks
+module github.com/stanlapru/laputin_frameworks
 
 go 1.24.2
 
