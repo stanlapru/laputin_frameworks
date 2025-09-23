@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { setToken } from '../lib/auth'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login(){
   const [email, setEmail] = useState('')
@@ -6,9 +8,26 @@ export default function Login(){
   const [error, setError] = useState(null)
 
   async function submit(e){
-    e.preventDefault()
-    setError(null)
+  e.preventDefault()
+  setError(null)
+  try {
+    const res = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ email, password })
+    })
+    if (!res.ok){
+      const err = await res.json()
+      setError(err.detail || 'Ошибка авторизации')
+      return
+    }
+    const data = await res.json()
+    setToken(data.access_token)
+    navigate('/defects')
+  } catch (err) {
+    setError('Серверная ошибка')
   }
+}
 
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
