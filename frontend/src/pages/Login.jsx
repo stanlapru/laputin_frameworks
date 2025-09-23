@@ -82,7 +82,7 @@ export default function Login(){
 
         <p className="mt-10 text-center text-sm text-gray-500">
           Нет аккаунта?
-          <a href="#" className="font-semibold text-indigo-400 hover:text-indigo-300"> Зарегистрируйтесь</a>
+          <a href="/register" className="font-semibold text-indigo-400 hover:text-indigo-300"> Зарегистрируйтесь</a>
         </p>
       </div>
     </div>

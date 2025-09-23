@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import App from "./App";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import RequireAuth from "./components/RequireAuth";
 import DefectCreate from "./pages/DefectCreate";
 import "./index.css";
@@ -14,6 +15,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/" element={<App />}>
           <Route index element={<Navigate to="/login" replace />} />
         </Route>
+        <Route path="/register" element={<Register/>} />
         <Route path="/login" element={<Login />} />
         {/* <Route
           path="/defects"

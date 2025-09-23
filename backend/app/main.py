@@ -10,6 +10,9 @@ from api.routes.routes_projects import router as defects_router
 from api.routes.routes_files import router as files_router
 from api.deps import get_current_user
 
+from dotenv import load_dotenv
+load_dotenv()
+
 UPLOAD_DIR = os.environ.get("UPLOAD_DIR", "uploads")
 ALLOWED_ORIGINS = os.environ.get("ALLOWED_ORIGINS", "http://localhost:5173")
 
